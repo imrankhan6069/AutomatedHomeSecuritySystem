@@ -23,6 +23,7 @@ void setup()
    pinMode(led, OUTPUT);
   pinMode(led2, OUTPUT);
   pinMode(led3, OUTPUT);
+  Scheduler.startLoop(loop2);
 
 }
 
@@ -37,9 +38,16 @@ void loop()
     digitalWrite(led, HIGH);
     delay(100);               // wait for a second
    digitalWrite(led, LOW);
+   delay(100);
    
   digitalWrite(led2, HIGH);
+  delay(100);               // wait for a second
+   digitalWrite(led2, LOW);
+   delay(100);
   digitalWrite(led3, HIGH);
+  delay(100);               // wait for a second
+   digitalWrite(led3, LOW);
+   delay(100);
     Camera.setFlash(ON);
     Camera.rearCapture();
     delay(5000);
@@ -51,7 +59,12 @@ void loop()
   }
 
 }
-
+//void loop2() {
+ // digitalWrite(led2, HIGH);
+ // delay(100);
+ // digitalWrite(led2, LOW);
+ // delay(100);
+//}
 void ultrasonic()
 {
   digitalWrite(trigPin, LOW);
