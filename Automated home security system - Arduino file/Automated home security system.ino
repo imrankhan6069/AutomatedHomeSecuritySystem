@@ -1,9 +1,12 @@
+
 #define CUSTOM_SETTINGS
+#define INCLUDE_BUZZER_SHIELD
 #define INCLUDE_CAMERA_SHIELD
 #define INCLUDE_EMAIL_SHIELD
 #define trigPin 6 
 #define echoPin 5
 #include <OneSheeld.h>
+#include <Scheduler.h>
 int led = 13;
 int led2 = 12;
 int led3 = 11;
@@ -14,8 +17,6 @@ int duration, distance;//declare distance and duration as integers;
 
 void setup() 
 {
-  // put your setup code here, to run once:
-  //serial monitor and pin setup. 
   Serial.begin(9600);
   OneSheeld.begin();
   pinMode(trigPin, OUTPUT);
@@ -23,7 +24,7 @@ void setup()
    pinMode(led, OUTPUT);
   pinMode(led2, OUTPUT);
   pinMode(led3, OUTPUT);
-  Scheduler.startLoop(loop2);
+Scheduler.startLoop(loop2);
 
 }
 
@@ -54,22 +55,25 @@ void loop()
     Camera.setFlash(OFF);
     //recipient, subject, message
     Email.attachLastPicture("onughachimobi@gmail.com","Presence detected","Intruder Alert");
+   Buzzer.buzzOn();
+    delay(10000);
+    Buzzer.buzzOff();
     delay(30000);
    
   }
 
 }
-//void loop2() {
- // digitalWrite(led2, HIGH);
- // delay(100);
- // digitalWrite(led2, LOW);
- // delay(100);
-//}
+void loop2() {
+ digitalWrite(led2, HIGH);
+ delay(100);
+ digitalWrite(led2, LOW);
+ delay(100);
+}
 void ultrasonic()
 {
   digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
-  digitalWrite(trigPin,HIGH);// trigin send out signal
+  digitalWrite(trigPin,HIGH);// trigin sends out signal
   delayMicroseconds(10);
   digitalWrite(trigPin, LOW);// then goes low
 
