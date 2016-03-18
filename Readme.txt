@@ -1,3 +1,2 @@
-For our project, we have chossen to use the arduino to build an automated home security system.
-
-
+For our project, we have chosen to use the arduino to build an automated home security system.
+Update source code base
