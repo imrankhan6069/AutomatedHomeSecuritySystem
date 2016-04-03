@@ -31,7 +31,7 @@ void loop()
 {
 
   ultrasonic();
-  if(distance > 0 && distance <= 30.0 )// distance can be increased to desired distance
+  if(distance > 0 && distance <= 30.0 )// We have chosen to use 30 cm as the distance to trigger the system. This can be increased to desired distance
   {
     Serial.print("Trigger at :");
     Serial.println(distance);
@@ -79,7 +79,7 @@ void ultrasonic()
 
 void blinktimer()//Method to make led blink when ultasonic sensor is triggered
 {
-    digitalWrite(led, HIGH);//blink
+    digitalWrite(led, HIGH); //blink
     delay(100);               // wait for a second
     digitalWrite(led, LOW);
     delay(100);
