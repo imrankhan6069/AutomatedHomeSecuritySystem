@@ -14,7 +14,6 @@ int duration, distance;//declare distance and duration as integers;
 
 void setup() 
 {
-  // put your setup code here, to run once:
   //serial monitor and pin setup. 
   Serial.begin(115200);
   OneSheeld.begin();
