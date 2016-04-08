@@ -84,7 +84,7 @@ void blinktimer()//Method to make led blink when ultasonic sensor is triggered
     delay(100);
    
     digitalWrite(led2, HIGH);//blink
-    delay(100);               // wait for a second
+    delay(100);               //wait for a second
     digitalWrite(led2, LOW);
     delay(100);
     
